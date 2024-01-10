@@ -1,10 +1,10 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
 metadata:
   name: color-app
   namespace: color-app
 spec:
-  replicas: 0
+  replicas: 5
   selector:
     matchLabels:
       app: color-app
@@ -28,7 +28,7 @@ spec:
             - name: APP_NAME
               value: Color App
             - name: APP_COLOR
-              value: red
+              value: green
           resources:
             limits:
               cpu: 100m
@@ -45,3 +45,20 @@ spec:
               path: /health
               port: http
           imagePullPolicy: Always
+  strategy:
+    canary: #Indicates that the rollout should use the Canary strategy
+      maxSurge: "25%" # 25% of the pods can be new pods
+      maxUnavailable: 0 # 0 of the pods can be unavailable
+      steps:
+      - setWeight: 10 # 10% of traffic to the new version
+      - pause:
+          duration: 1m # pause after each step
+      - setWeight: 20 # 20% of traffic to the new version
+      - pause:
+          duration: 1m # pause after each step
+      - setWeight: 30 # 30% of traffic to the new version
+      - pause:
+          duration: 2m # pause after each step
+      - setWeight: 50 # 50% of traffic to the new version
+      - pause: {} # pause indefinitely
+  revisionHistoryLimit: 3
