@@ -1,20 +1,12 @@
-apiVersion: autoscaling/v2
+apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: color-app
-  labels:
-    app: color-app
+  name: hpa-rollout-color-app
 spec:
+  maxReplicas: 10
+  minReplicas: 2
   scaleTargetRef:
     apiVersion: argoproj.io/v1alpha1
     kind: Rollout
     name: color-app
-  minReplicas: 2
-  maxReplicas: 10
-  metrics:
-    - type: Resource
-      resource:
-        name: cpu
-        target:
-          type: Utilization
-          averageUtilization: 50
+  targetCPUUtilizationPercentage: 50
