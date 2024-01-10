@@ -52,13 +52,13 @@ spec:
       steps:
       - setWeight: 10 # 10% of traffic to the new version
       - pause:
-          duration: 1m # pause after each step
+          duration: 2m # pause after each step
       - setWeight: 20 # 20% of traffic to the new version
       - pause:
-          duration: 1m # pause after each step
+          duration: 4m # pause after each step
       - setWeight: 30 # 30% of traffic to the new version
       - pause:
-          duration: 2m # pause after each step
+          duration: 5m # pause after each step
       - setWeight: 50 # 50% of traffic to the new version
       - pause: {} # pause indefinitely
   revisionHistoryLimit: 3
