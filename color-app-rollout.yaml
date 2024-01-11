@@ -36,16 +36,16 @@ spec:
             requests:
               cpu: 50m
               memory: 128Mi
-          livenessProbe:
-            httpGet:
-              path: /health
-              port: http
-            timeoutSeconds: 5
-          readinessProbe:
-            httpGet:
-              path: /health
-              port: http
-            timeoutSeconds: 5
+          # livenessProbe:
+          #   httpGet:
+          #     path: /health
+          #     port: http
+          #   timeoutSeconds: 5
+          # readinessProbe:
+          #   httpGet:
+          #     path: /health
+          #     port: http
+          #   timeoutSeconds: 5
           imagePullPolicy: Always
   strategy:
     canary: #Indicates that the rollout should use the Canary strategy
