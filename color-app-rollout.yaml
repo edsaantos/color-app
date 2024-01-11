@@ -4,7 +4,7 @@ metadata:
   name: color-app
   namespace: color-app
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: color-app
