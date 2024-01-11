@@ -29,7 +29,7 @@ spec:
             - name: APP_NAME
               value: Color App
             - name: APP_COLOR
-              value: purple
+              value: blue
           resources:
             limits:
               cpu: 100m
