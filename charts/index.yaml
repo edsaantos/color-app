@@ -1,0 +1,22 @@
+apiVersion: v1
+entries:
+  color-app:
+  - apiVersion: v2
+    appVersion: 3.12.1
+    created: "2024-01-15T20:08:32.167249-03:00"
+    description: A Helm chart of Python color app
+    digest: 065794562b2689b3f00e722d8539d5d4c9724bdfbdaa6b1454b070cd69c6a477
+    keywords:
+    - python
+    - flask
+    - color
+    maintainers:
+    - email: edsonbsantos93@gmail.com
+      name: Edson Santos
+      url: https://github.com/edsaantos
+    name: color-app
+    type: application
+    urls:
+    - color-app-0.1.1.tgz
+    version: 0.1.1
+generated: "2024-01-15T20:08:32.166457-03:00"
