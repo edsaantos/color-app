@@ -1,0 +1,14 @@
+apiVersion: v2
+name: color-app
+description: A Helm chart of Python color app
+type: application
+version: 0.1.1
+appVersion: "3.12.1"
+maintainers:
+  - name: Edson Santos
+    email: edsonbsantos93@gmail.com
+    url: https://github.com/edsaantos
+keywords:
+  - python
+  - flask
+  - color
